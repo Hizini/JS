@@ -99,6 +99,17 @@ const personData = [{
 
 // setDetail('영희', {book: ['d','dd'], price: 30}) // object name이 영희이면, {book: ['d','dd'], price: 30} 추가
 
+const managePersonData = (name, data) => {
+    let index = personData.findIndex(v => v.name === name)
 
-
+    if(index === -1) {
+        personData.push({name: name}) 
+        index = personData.length-1
+    }
+    data.forEach(v => {
+        personData[index][v[0]] = v[1]
+    })
+}
+managePersonData('희진', [['job', 'frontend developer'], ['height', 169]])
+managePersonData('철수', [['job', 'frontend developer'], ['height', 169]])
 console.log(personData)
