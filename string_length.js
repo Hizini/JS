@@ -17,3 +17,27 @@ let map2 = fileList.map(function(v){
      return fileName //'.' 앞부분 출력
 })
 console.log(map2);
+
+/////////////////////////
+//배열의 원소중 '_'를 ''로 대체
+let map3 = map2.map(function(v){ 
+    let replace = v.replace(/_/g, '')
+    return replace
+
+})
+
+//배열의 모든 원소를 소문자로 출력
+let map4 = map3.map(function(v){ 
+    let lower = v.toLowerCase()
+    return lower
+})
+
+// 배열의 모든 원소를 대문자로 출력
+let map5 = map3.map(function(v){ 
+    let upper = v.toUpperCase() 
+    return upper
+})
+
+console.log(map3)
+console.log(map4)
+console.log(map5)
