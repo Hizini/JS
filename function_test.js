@@ -99,17 +99,22 @@ const personData = [{
 
 // setDetail('영희', {book: ['d','dd'], price: 30}) // object name이 영희이면, {book: ['d','dd'], price: 30} 추가
 
-const managePersonData = (name, data) => {
-    let index = personData.findIndex(v => v.name === name)
+//persconData 추가 및 수정 함수 managePersonData 생성
+const managePersonData = (name, data) => { //data는 2차원 배열로 [[key, value]] 값 설정
+    let index = personData.findIndex(v => v.name === name) // 함수의 name 인자와 personData의 object name이 같을때 personData의 인덱스 값
 
-    if(index === -1) {
-        personData.push({name: name}) 
-        index = personData.length-1
+    //추가하는 기능
+    if(index === -1) {  // personData 내에 name값이 없으면
+        personData.push({name: name}) // name: name 형태로 오브젝트 추가
+        index = personData.length-1 // data의 값을 동일한 오브젝트에 추가하기 위해 -1인 인덱스 값을 personData의 인덱스 숫자로 변경
     }
+
+    //수정하는 기능 (오브젝트 내에 이름은 존재할 때, data 값을 추가하거나, 수정함)
     data.forEach(v => {
-        personData[index][v[0]] = v[1]
+        personData[index][v[0]] = v[1]  //  v[0]: data의 키 값, v[1]: data의 value 값
     })
 }
 managePersonData('희진', [['job', 'frontend developer'], ['height', 169]])
 managePersonData('철수', [['job', 'frontend developer'], ['height', 169]])
+
 console.log(personData)
